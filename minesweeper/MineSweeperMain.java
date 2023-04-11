@@ -1,7 +1,9 @@
 package minesweeper;
-import java.awt.*;        // Use AWT's Layout Manager
+
+import java.awt.*; // Use AWT's Layout Manager
 import java.awt.event.*;
-import javax.swing.*;     // Use Swing's Containers and Components
+import javax.swing.*; // Use Swing's Containers and Components
+
 /**
  * The Mine Sweeper Game.
  * Left-click to reveal a cell.
@@ -16,7 +18,7 @@ public class MineSweeperMain extends JFrame {
    GameBoardPanel board = new GameBoardPanel();
    JButton btnNewGame = new JButton("New Game");
 
-   // Constructor to set up all the UI and game components
+   // Constructor to set up all the UI and game components  
    public MineSweeperMain() {
       Container cp = this.getContentPane();           // JFrame's content-pane
       cp.setLayout(new BorderLayout()); // in 10x10 GridLayout
