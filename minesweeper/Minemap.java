@@ -6,7 +6,7 @@ package minesweeper;
 public class MineMap {
     // package access
     int numMines;
-    boolean[][] isMined = new boolean[GameBoardPanel.ROWS][GameBoardPanel.COLS];
+    boolean[][] isMined = new boolean[GameBoardPanel.   ROWS][GameBoardPanel.COLS];
     // default is false
 
     // Constructor

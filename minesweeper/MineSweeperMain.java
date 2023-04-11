@@ -12,15 +12,15 @@ import javax.swing.*; // Use Swing's Containers and Components
  * You lose if you reveal a cell containing a mine.
  */
 public class MineSweeperMain extends JFrame {
-   private static final long serialVersionUID = 1L;  // to prevent serial warning
+   private static final long serialVersionUID = 1L; // to prevent serial warning
 
    // private variables
    GameBoardPanel board = new GameBoardPanel();
    JButton btnNewGame = new JButton("New Game");
 
-   // Constructor to set up all the UI and game components  
+   // Constructor to set up all the UI and game components
    public MineSweeperMain() {
-      Container cp = this.getContentPane();           // JFrame's content-pane
+      Container cp = this.getContentPane(); // JFrame's content-pane
       cp.setLayout(new BorderLayout()); // in 10x10 GridLayout
 
       cp.add(board, BorderLayout.CENTER);
@@ -36,20 +36,21 @@ public class MineSweeperMain extends JFrame {
 
       board.newGame();
 
-      pack();  // Pack the UI components, instead of setSize()
-      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // handle window-close button
-      setTitle("Mineswepper");
-      setVisible(true);   // show it
+      pack(); // Pack the UI components, instead of setSize()
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // handle window-close button
+      setTitle("Minesweeper");
+      setVisible(true); // show it
    }
 
    // The entry main() method
    public static void main(String[] args) {
       // [TODO 1] Check Swing program template on how to run the constructor
-	  javax.swing.SwingUtilities.invokeLater(new Runnable() {
+      javax.swing.SwingUtilities.invokeLater(new Runnable() {
          @Override
          public void run() {
+            new MineSweeperWelcome();     
             new MineSweeperMain();
-		}
-	  });
-    }
+         }
+      });
+   }
 }
