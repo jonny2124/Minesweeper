@@ -25,10 +25,10 @@ public class MineSweeperWelcome extends JDialog {
         // Add a field for the player to enter their name
         JLabel nameLabel = new JLabel("Enter your name:");
         nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        playerNameField = new JTextField();
-        playerNameField.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(nameLabel);
-        welcomePanel.add(playerNameField);
+        JTextFields playerNameField = new JTextField();
+        JTextFields playerNameField.setAlignmentX(Component.CENTER_ALIGNMENT);
+        welcomePanel.add(nameLabel);
+        welcomePanel.add(JTextFields playerNameField);
 
         // Add a button to start the game
         startButton = new JButton("Start!");
