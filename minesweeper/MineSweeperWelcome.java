@@ -1,56 +1,58 @@
 package minesweeper;
 
-import java.awt.*; // Use AWT's Layout Manager
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*; // Use Swing's Containers and Components
 
-public class MineSweeperWelcome extends JDialog {
-    private JTextFields playerNameField;
-    private JButton startButton;
+public class MineSweeperWelcome extends JFrame {
+    private static final long serialVersionUID = 1L; // to prevent serial warning
 
-    public MinesweeperWelcomeScreen(JFrame parent) {
-        super(parent, "Welcome to Minesweeper!", true);
+    private JButton startButton = new JButton("Start Game");
+    private Music bgMusic;
 
-        // Create a panel to hold the UI elements
-        JPanel welcomePanel = new JPanel();
-        welcomePanel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+    public MineSweeperWelcome() {
+        bgMusic = new Music("C:/Java/Minesweeper/minesweeper/Minesweeper Music.wav");
+        bgMusic.play();
 
-        // Add a welcome message to the panel
-        JLabel welcomeLabel = new JLabel("Welcome to Minesweeper!");
-        welcomeLabel.setFont(new Font("Helvetica Bold", Font.BOLD, 40)); // Change font size and style
-        welcomeLabel.setForeground(Color.BLUE); // Change font color
-        welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        welcomePanel.add(welcomeLabel);
+        Container cp = this.getContentPane(); // JFrame's content-pane
+        cp.setLayout(new BorderLayout()); // in 10x10 GridLayout
 
-        // Add a field for the player to enter their name
-        JLabel nameLabel = new JLabel("Enter your name:");
-        nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        JTextFields playerNameField = new JTextField();
-        JTextFields playerNameField.setAlignmentX(Component.CENTER_ALIGNMENT);
-        welcomePanel.add(nameLabel);
-        welcomePanel.add(JTextFields playerNameField);
+        JLabel title = new JLabel("Welcome to Minesweeper");
+        title.setFont(new Font("Helvetica Bold", Font.BOLD, 24));
+        title.setHorizontalAlignment(JLabel.CENTER);
+        cp.add(title, BorderLayout.NORTH);
 
-        // Add a button to start the game
-        startButton = new JButton("Start!");
-        startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JLabel taunt = new JLabel("Are you prepared to die??");
+        taunt.setForeground(Color.RED);
+        taunt.setFont(new Font("Chiller", Font.BOLD, 18));
+        taunt.setHorizontalAlignment(JLabel.CENTER);
+        cp.add(taunt, BorderLayout.CENTER);
+
+        JPanel buttonPanel = new JPanel(new FlowLayout());
+        buttonPanel.add(startButton);
+        cp.add(buttonPanel, BorderLayout.SOUTH);
+
         startButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
-                // Start the game with the player's name
-                String playerName = playerNameField.getText();
-                startGame(playerName);
+                setVisible(false); // Hide the welcome screen
+                new MineSweeperMain(); // Show the game window
             }
         });
-        welcomePanel.add(startButton);
 
-        // Add the panel to the dialog
-        add(welcomePanel);
-        pack();
-        setLocationRelativeTo(null); // Center the dialog on the screen
+        pack(); // Pack the UI components, instead of setSize()
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // handle window-close button
+        setTitle("Minesweeper");
+        setLocationRelativeTo(null); // Center the window on the screen
+        setVisible(true); // show it
     }
 
-    private void startGame(String playerName) {
-        // Start the game with the given player name
-        // ...
-        dispose(); // Close the welcome screen
+    public static void main(String[] args) {
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new MineSweeperWelcome();
+            }
+        });
     }
 }

@@ -17,12 +17,9 @@ public class MineSweeperMain extends JFrame {
    // private variables
    GameBoardPanel board = new GameBoardPanel();
    JButton btnNewGame = new JButton("New Game");
-   private Music bgMusic;
 
    // Constructor to set up all the UI and game components
    public MineSweeperMain() {
-      bgMusic = new Music("C:/Java/Minesweeper/minesweeper/Minesweeper Music.wav");
-      bgMusic.play();
 
       Container cp = this.getContentPane(); // JFrame's content-pane
       cp.setLayout(new BorderLayout()); // in 10x10 GridLayout
@@ -52,8 +49,7 @@ public class MineSweeperMain extends JFrame {
       javax.swing.SwingUtilities.invokeLater(new Runnable() {
          @Override
          public void run() {
-            // new MineSweeperWelcome();
-            new MineSweeperMain();
+            new MineSweeperWelcome();
          }
       });
    }

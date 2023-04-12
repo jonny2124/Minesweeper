@@ -63,7 +63,7 @@ public class GameBoardPanel extends JPanel {
                 cells[row][col].newGame(mineMap.isMined[row][col]);
             }
         }
-		GameBoardPanel.this.setVisible(true);
+        GameBoardPanel.this.setVisible(true);
     }
 
     // Return the number of mines [0, 8] in the 8 neighboring cells
@@ -137,10 +137,11 @@ public class GameBoardPanel extends JPanel {
                 if (sourceCell.isMined) {
                     System.out.println("Game Over");
                     sourceCell.setText("*");
-					
-				// if the cell is flagged, the cell will not be revealed until the flag is removed
-				} else if (sourceCell.isFlagged) {
-					return;					
+
+                    // if the cell is flagged, the cell will not be revealed until the flag is
+                    // removed
+                } else if (sourceCell.isFlagged) {
+                    return;
 
                 } else {
                     revealCell(sourceCell.row, sourceCell.col);
@@ -160,14 +161,13 @@ public class GameBoardPanel extends JPanel {
             // Another window will appear if the player has won or lost
 
             if (hasWon()) {
-				GameEndMessagePanel winMessage = new GameEndMessagePanel(true, GameBoardPanel.this);
-				GameBoardPanel.this.setVisible(false);
+                GameEndMessagePanel winMessage = new GameEndMessagePanel(true, GameBoardPanel.this);
+                GameBoardPanel.this.setVisible(false);
 
             } else if (sourceCell.isMined) {
-				GameEndMessagePanel loseMessage = new GameEndMessagePanel(false, GameBoardPanel.this);
-				GameBoardPanel.this.setVisible(false);
-            } 
+                GameEndMessagePanel loseMessage = new GameEndMessagePanel(false, GameBoardPanel.this);
+                GameBoardPanel.this.setVisible(false);
+            }
         }
     }
 }
-    

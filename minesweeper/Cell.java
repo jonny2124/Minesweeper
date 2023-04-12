@@ -1,4 +1,5 @@
 package minesweeper;
+
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -16,7 +17,7 @@ public class Cell extends JButton {
     public static final Color FG_NOT_REVEALED = Color.RED; // flag, mines
     public static final Color BG_REVEALED = Color.DARK_GRAY;
     public static final Color FG_REVEALED = Color.YELLOW; // number of mines
-    public static final Font FONT_NUMBERS = new Font("Monospaced", Font.BOLD, 20);
+    public static final Font FONT_NUMBERS = new Font("customFont", Font.BOLD, 20);
 
     // Define properties (package-visible)
     /** The row and column number of the cell */
