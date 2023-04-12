@@ -63,6 +63,7 @@ public class GameBoardPanel extends JPanel {
                 cells[row][col].newGame(mineMap.isMined[row][col]);
             }
         }
+		GameBoardPanel.this.setVisible(true);
     }
 
     // Return the number of mines [0, 8] in the 8 neighboring cells
@@ -136,6 +137,10 @@ public class GameBoardPanel extends JPanel {
                 if (sourceCell.isMined) {
                     System.out.println("Game Over");
                     sourceCell.setText("*");
+					
+				// if the cell is flagged, the cell will not be revealed until the flag is removed
+				} else if (sourceCell.isFlagged) {
+					return;					
 
                 } else {
                     revealCell(sourceCell.row, sourceCell.col);
@@ -155,25 +160,13 @@ public class GameBoardPanel extends JPanel {
             // Another window will appear if the player has won or lost
 
             if (hasWon()) {
-                JFrame winMessageFrame = new JFrame("Congratulations!");
-                JLabel winMessageLabel = new JLabel("You win!", SwingConstants.CENTER);
-                winMessageLabel.setFont(new Font("Helvetica Bold", Font.BOLD, 40)); // Change font size and style
-                winMessageLabel.setForeground(Color.BLUE); // Change font color
-                winMessageFrame.add(winMessageLabel);
-                winMessageFrame.setSize(260, 150);
-                winMessageFrame.setLocationRelativeTo(null);
-                winMessageFrame.setVisible(true);
+				GameEndMessagePanel winMessage = new GameEndMessagePanel(true, GameBoardPanel.this);
+				GameBoardPanel.this.setVisible(false);
 
             } else if (sourceCell.isMined) {
-                JFrame gameOverMessageFrame = new JFrame("Game Over!");
-                JLabel gameOverMessageLabel = new JLabel("You Lose!");
-                gameOverMessageLabel.setFont(new Font("Helvetica Bold", Font.BOLD, 40)); // Change font size and style
-                gameOverMessageLabel.setForeground(Color.RED); // Change font color
-                gameOverMessageFrame.add(gameOverMessageLabel);
-                gameOverMessageFrame.setSize(260, 150);
-                gameOverMessageFrame.setLocationRelativeTo(null);
-                gameOverMessageFrame.setVisible(true);
-            }
+				GameEndMessagePanel loseMessage = new GameEndMessagePanel(false, GameBoardPanel.this);
+				GameBoardPanel.this.setVisible(false);
+            } 
         }
     }
 }
