@@ -1,4 +1,4 @@
-//package minesweeper;
+package minesweeper;
 
 import java.awt.*; // Use AWT's Layout Manager
 import java.awt.event.*;
