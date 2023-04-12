@@ -1,5 +1,6 @@
 package minesweeper;
 
+import java.util.Random;
 /**
  * Locations of Mines
  */
