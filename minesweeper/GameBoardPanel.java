@@ -134,7 +134,7 @@ public class GameBoardPanel extends JPanel {
                 // [TODO 5] (later, after TODO 3 and 4
                 // if you hit a mine, game over
                 // else reveal this cell
-                if (sourceCell.isMined) {
+                if (sourceCell.isMined && !sourceCell.isFlagged) {
                     System.out.println("Game Over");
 					
 					// A skull will be shown when there is a mine
