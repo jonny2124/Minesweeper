@@ -13,10 +13,13 @@ public class Cell extends JButton {
 
     // Define named constants for JButton's colors and fonts
     // to be chosen based on cell's state
-    public static final Color BG_NOT_REVEALED = Color.GREEN;
-    public static final Color FG_NOT_REVEALED = Color.RED; // flag, mines
-    public static final Color BG_REVEALED = Color.DARK_GRAY;
-    public static final Color FG_REVEALED = Color.YELLOW; // number of mines
+	
+   // Colors are chosen to try to make people feel uncomfortable 
+   public static final Color BG_NOT_REVEALED  = Color.decode("#4a412a");
+   public static final Color BG_REVEALED = Color.decode("#d01317");
+   public static final Color FG_REVEALED = Color.GREEN; // number of mines
+   public static final Color FG_NOT_REVEALED = Color.RED;    // flag, mines
+	
     public static final Font FONT_NUMBERS = new Font("customFont", Font.BOLD, 20);
 
     // Define properties (package-visible)
