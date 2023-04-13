@@ -138,7 +138,7 @@ public class GameBoardPanel extends JPanel {
                     System.out.println("Game Over");
 					
 					// A skull will be shown when there is a mine
-					ImageIcon mine = new ImageIcon("C:\\Java_Files\\minesweeper\\Images\\Skull.png");  
+					ImageIcon mine = new ImageIcon("C:/Java/Minesweeper/minesweeper/Images/Skull.png");  
 					Image mineImage = mine.getImage();
 					Image scaledMine = mineImage.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
 					ImageIcon scaledMineIcon = new ImageIcon(scaledMine);
@@ -166,7 +166,7 @@ public class GameBoardPanel extends JPanel {
                 } else if (!sourceCell.isRevealed) {
 					
 					// A rosary will be shown when flagged  
-					ImageIcon flag = new ImageIcon("C:\\Java_Files\\minesweeper\\Images\\Cross.png");
+					ImageIcon flag = new ImageIcon("C:/Java/Minesweeper/minesweeper/Images/Cross.png");
 					Image flagImage = flag.getImage();
 					Image scaledFlag = flagImage.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
 					ImageIcon scaledFlagIcon = new ImageIcon(scaledFlag);
